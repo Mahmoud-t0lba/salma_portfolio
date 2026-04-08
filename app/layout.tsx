@@ -28,14 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   applicationName: `${siteConfig.name} Portfolio`,
   authors: [{ name: siteConfig.name }],
-  keywords: [
-    "Senior Flutter Developer",
-    "Flutter Portfolio",
-    "Mobile Engineer",
-    "Cross-platform Developer",
-    "Flutter Architecture",
-    "Mahmoud Tolba",
-  ],
+  keywords: [...siteConfig.keywords],
   openGraph: {
     title: `${siteConfig.name} | ${siteConfig.role}`,
     description: siteConfig.metaDescription,

@@ -1,4 +1,4 @@
-import { skillGroups, skillSpotlights } from "@/content/skills";
+import { skillGroups, skillSpotlights, techStackSectionCopy } from "@/content/skills";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 
@@ -8,9 +8,9 @@ export function TechStackSection() {
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
-            eyebrow="Tech Stack"
-            title="A structured skills view built around how Mahmoud actually works."
-            description="Instead of a random badge wall, the section is organized by real production responsibilities: Flutter delivery, architecture, platform services, light native integration support, and workflow."
+            eyebrow={techStackSectionCopy.eyebrow}
+            title={techStackSectionCopy.title}
+            description={techStackSectionCopy.description}
           />
         </Reveal>
 

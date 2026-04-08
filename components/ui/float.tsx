@@ -29,6 +29,7 @@ export function Float({
       <motion.div
         animate={{
           y: [0, -distance, 0],
+          x: [0, distance * 0.16, 0, -distance * 0.12, 0],
           rotate: [0, 0.75, 0, -0.45, 0],
           scale: [1, 1.008, 1],
         }}

@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 
-import { certifications, education } from "@/content/site";
+import { credentialsSectionCopy, education, trainings } from "@/content/site";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 
@@ -10,16 +10,16 @@ export function CredentialsSection() {
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
-            eyebrow="Education & Certifications"
-            title="Clean, compact credibility signals."
-            description="A simple section for formal education and supporting certifications, kept intentionally minimal to preserve the premium rhythm of the page."
+            eyebrow={credentialsSectionCopy.eyebrow}
+            title={credentialsSectionCopy.title}
+            description={credentialsSectionCopy.description}
           />
         </Reveal>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[0.82fr_1.18fr]">
           <Reveal className="surface-interactive rounded-[1.8rem] border border-[var(--line)] bg-white/85 p-6 shadow-[var(--shadow-soft)]">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--text-muted)]">
-              Education
+              {credentialsSectionCopy.primaryLabel}
             </p>
             {education.map((item) => (
               <div key={item.title} className="surface-soft-lift mt-5 rounded-[1.4rem] border border-[var(--line)] bg-[var(--surface-strong)] p-5">
@@ -39,10 +39,10 @@ export function CredentialsSection() {
             className="surface-interactive rounded-[1.8rem] border border-[var(--line)] bg-white/85 p-6 shadow-[var(--shadow-soft)]"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--text-muted)]">
-              Certifications
+              {credentialsSectionCopy.secondaryLabel}
             </p>
             <div className="mt-5 grid gap-3">
-              {certifications.map((item) => (
+              {trainings.map((item) => (
                 <div
                   key={item.title}
                   className="surface-soft-lift flex flex-wrap items-center justify-between gap-4 rounded-[1.25rem] border border-[var(--line)] bg-[var(--surface-strong)] p-4"

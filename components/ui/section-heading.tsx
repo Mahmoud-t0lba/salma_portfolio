@@ -14,8 +14,13 @@ export function SectionHeading({
   align = "left",
 }: SectionHeadingProps) {
   return (
-    <div className={cn("max-w-3xl", align === "center" && "mx-auto text-center")}>
-      <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--text-muted)]">
+    <div className={cn("heading-rule max-w-3xl", align === "center" && "mx-auto text-center")}>
+      <p
+        className={cn(
+          "section-heading-chip text-xs font-semibold uppercase tracking-[0.32em] text-[var(--text-muted)]",
+          align === "center" && "mx-auto",
+        )}
+      >
         {eyebrow}
       </p>
       <h2 className="mt-4 font-display text-3xl tracking-[-0.04em] text-[var(--text-primary)] sm:text-4xl">

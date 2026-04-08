@@ -2,55 +2,35 @@ import { ArrowRight, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react"
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Reveal } from "@/components/ui/reveal";
-import { siteConfig } from "@/content/site";
+import { contactItems, contactSectionCopy, siteConfig } from "@/content/site";
 
-const contactItems = [
-  {
-    label: "Email",
-    value: siteConfig.email,
-    href: `mailto:${siteConfig.email}`,
-    icon: Mail,
-  },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/mahmoud-t0lba",
-    href: "https://www.linkedin.com/in/mahmoud-t0lba",
-    icon: Linkedin,
-  },
-  {
-    label: "GitHub",
-    value: "github.com/Mahmoud-t0lba",
-    href: "https://github.com/Mahmoud-t0lba/",
-    icon: Github,
-  },
-  {
-    label: "Phone",
-    value: siteConfig.phone,
-    href: `tel:${siteConfig.phone.replace(/\s+/g, "")}`,
-    icon: Phone,
-  },
-];
+const contactIcons = {
+  Email: Mail,
+  LinkedIn: Linkedin,
+  GitHub: Github,
+  Phone,
+} as const;
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-14 sm:py-18 lg:py-24">
+    <section id="contact" className="section-glow py-14 sm:py-18 lg:py-24">
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="surface-interactive rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(248,244,236,0.96))] p-6 shadow-[var(--shadow-strong)] sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--text-muted)]">
-              Contact
+          <div className="surface-interactive surface-shell aurora-panel section-grid rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(248,244,236,0.96))] p-6 shadow-[var(--shadow-strong)] sm:p-8">
+            <p className="relative z-10 text-xs font-semibold uppercase tracking-[0.24em] text-[var(--text-muted)]">
+              {contactSectionCopy.eyebrow}
             </p>
-            <div className="mt-5 grid gap-8 lg:grid-cols-[1fr_0.92fr]">
+            <div className="relative z-10 mt-5 grid gap-8 lg:grid-cols-[1fr_0.92fr]">
               <div>
                 <h2 className="font-display text-3xl tracking-[-0.05em] text-[var(--text-primary)] sm:text-4xl">
-                  Let’s build high-quality mobile products with strong technical ownership.
+                  {contactSectionCopy.title}
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-7 text-[var(--text-secondary)]">
                   {siteConfig.contactStatement}
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <ButtonLink href={`mailto:${siteConfig.email}`}>
-                    Email Mahmoud
+                    {contactSectionCopy.primaryCtaLabel}
                     <ArrowRight className="ml-2 size-4" />
                   </ButtonLink>
                   <ButtonLink href={siteConfig.cvDownloadHref} variant="secondary" download>
@@ -59,19 +39,19 @@ export function ContactSection() {
                 </div>
                 <div className="surface-soft-lift mt-6 inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-white/80 px-4 py-2 text-sm text-[var(--text-secondary)]">
                   <MapPin className="size-4 text-[var(--accent)]" />
-                  Based in {siteConfig.location}
+                  {contactSectionCopy.locationLabel}
                 </div>
               </div>
 
               <div className="grid gap-3">
                 {contactItems.map((item, index) => {
-                  const Icon = item.icon;
+                  const Icon = contactIcons[item.label];
 
                   return (
                     <Reveal
                       key={item.label}
                       delay={index * 0.04}
-                      className="surface-soft-lift rounded-[1.35rem] border border-[var(--line)] bg-white/85 p-4"
+                      className="surface-soft-lift surface-shell metric-card rounded-[1.35rem] border border-[var(--line)] bg-white/85 p-4"
                     >
                       <a
                         href={item.href}

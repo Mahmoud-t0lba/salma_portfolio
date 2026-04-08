@@ -1,91 +1,51 @@
 import type { SkillGroup, SkillSpotlight } from "@/content/types";
 
+export const techStackSectionCopy = {
+  eyebrow: "Tech Stack",
+  title: "A structured view of Salma's front-end toolkit.",
+  description:
+    "Organized around the technologies and practical responsibilities that appear across the CV and project work.",
+} as const;
+
 export const skillSpotlights: SkillSpotlight[] = [
   {
-    title: "Flutter Core",
+    title: "Angular Delivery",
     description:
-      "Production-focused Flutter delivery across app structure, state management, UI quality, and release execution.",
+      "Front-end implementation centered on responsive Angular interfaces, readable structure, and practical delivery.",
   },
   {
-    title: "Native Awareness",
+    title: "Responsive Styling",
     description:
-      "Light Swift, SwiftUI, and Kotlin exposure that supports Flutter integration work when platform-specific handling is needed.",
+      "HTML, CSS, SCSS, and Bootstrap used to shape user-friendly layouts that stay consistent across screens.",
   },
   {
-    title: "Delivery Workflow",
+    title: "Cross-Framework Practice",
     description:
-      "Architecture, CI/CD, code review, sprint planning, and collaboration practices shaped by real product teams.",
+      "Hands-on project work across Angular, Vue.js, and Nuxt 3 that reinforces adaptable front-end thinking.",
   },
 ];
 
 export const skillGroups: SkillGroup[] = [
   {
+    title: "Core Markup & Styling",
+    items: ["HTML5", "CSS3", "SCSS", "SASS", "Bootstrap"],
+  },
+  {
     title: "Languages & Frameworks",
-    items: ["Dart", "Flutter", "Swift", "SwiftUI", "Kotlin"],
-  },
-  {
-    title: "Architecture & Patterns",
     items: [
-      "Clean Architecture",
-      "MVVM",
-      "MVC",
-      "OOP",
-      "SOLID",
-      "Design Patterns",
-      "Dependency Injection (GetIt)",
-      "Repository Pattern",
-      "Feature-Based Architecture",
-      "Scalable App Architecture",
+      "JavaScript (ES6)",
+      "TypeScript",
+      "Angular",
+      "Vue.js",
+      "Nuxt 3",
     ],
   },
   {
-    title: "State Management",
-    items: ["Bloc/Cubit", "Provider", "GetX", "Riverpod"],
+    title: "Interface Quality",
+    items: ["Responsive Design", "UI/UX Assessment", "User-Friendly Layouts", "Clean UI Implementation"],
   },
   {
-    title: "Native & Platform Integration",
-    items: [
-      "iOS Native",
-      "Android Native",
-      "Flutter Native Integration",
-      "JSON Parsing",
-      "Deep Linking",
-      "App Links",
-      "App Publishing",
-    ],
-  },
-  {
-    title: "Networking & Realtime",
-    items: ["REST APIs", "GraphQL", "Dio", "HTTP", "WebSocket", "Postman"],
-  },
-  {
-    title: "Storage & Services",
-    items: [
-      "Hive",
-      "SharedPreferences",
-      "Sqflite",
-      "Flutter Secure Storage",
-      "Firebase",
-      "FCM",
-      "Local Notifications",
-      "Google Maps",
-      "Push Notifications",
-    ],
-  },
-  {
-    title: "Workflow & Delivery",
-    items: [
-      "Agile (Scrum)",
-      "Jira",
-      "Trello",
-      "Git",
-      "GitHub",
-      "GitHub Actions",
-      "Bitrise (CI/CD)",
-      "Fastlane",
-      "Code Review",
-      "Sprint Planning",
-      "Team Collaboration",
-    ],
+    title: "Workflow & Project Tools",
+    items: ["Git", "GitHub", "Firebase Authentication", "Firestore", "API Integration", "Pinia"],
   },
 ];

@@ -1,4 +1,4 @@
-import { resumeSnapshot } from "@/content/site";
+import { resumeSnapshot, snapshotSectionCopy } from "@/content/site";
 import { Reveal } from "@/components/ui/reveal";
 
 export function SnapshotSection() {
@@ -8,13 +8,13 @@ export function SnapshotSection() {
         <Reveal>
           <div className="surface-interactive rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(135deg,var(--accent-strong),#102131)] px-6 py-8 text-white shadow-[0_30px_80px_rgba(16,33,49,0.24)] sm:px-8 sm:py-10">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">
-              Resume Snapshot
+              {snapshotSectionCopy.eyebrow}
             </p>
             <h2 className="mt-4 font-display text-3xl tracking-[-0.05em] text-white sm:text-4xl">
-              A compact recruiter view of Mahmoud&apos;s fit.
+              {snapshotSectionCopy.title}
             </h2>
             <p className="mt-4 max-w-3xl text-base leading-7 text-white/74">
-              Designed for the fast scan: what he builds, how he works, and what stands out across the CV.
+              {snapshotSectionCopy.description}
             </p>
 
             <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">

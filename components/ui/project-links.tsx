@@ -11,35 +11,21 @@ type ProjectLinksProps = {
 };
 
 export function ProjectLinks({ project, compact = false }: ProjectLinksProps) {
+  const availableLinks = projectLinkMeta.filter(({ key }) => Boolean(project.links[key]));
+
+  if (!availableLinks.length) {
+    return null;
+  }
+
   return (
     <div className="flex flex-wrap gap-2">
-      {projectLinkMeta.map(({ key, label }) => {
+      {availableLinks.map(({ key, label }) => {
         const href = project.links[key];
-        const isStoreLink = key === "appStore" || key === "googlePlay";
-
-        if (!href) {
-          if (isStoreLink) {
-            return null;
-          }
-
-          return (
-            <span
-              key={`${project.name}-${key}`}
-              className={cn(
-                "inline-flex items-center rounded-full border border-dashed border-[var(--line)] bg-white/50 text-[var(--text-muted)]",
-                compact ? "px-3 py-1 text-[0.7rem]" : "px-3.5 py-1.5 text-xs",
-              )}
-              aria-label={`${label} link not listed for ${project.name}`}
-            >
-              {label}
-            </span>
-          );
-        }
 
         return (
           <Link
             key={`${project.name}-${key}`}
-            href={href}
+            href={href!}
             target="_blank"
             rel="noreferrer"
             className={cn(

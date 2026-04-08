@@ -37,7 +37,7 @@ export type ExperienceItem = {
   role: string;
   company: string;
   location: string;
-  employmentType: string;
+  employmentType?: string;
   start: string;
   end: string;
   summary: string;

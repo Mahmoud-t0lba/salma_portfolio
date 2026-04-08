@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-import { siteConfig } from "@/content/site";
+import { heroHighlights, siteConfig } from "@/content/site";
 
 export const dynamic = "force-static";
 export const size = {
@@ -10,6 +10,8 @@ export const size = {
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
+  const highlightValues = heroHighlights.slice(0, 2).map((item) => item.value);
+
   return new ImageResponse(
     (
       <div
@@ -46,7 +48,7 @@ export default function OpenGraphImage() {
                 color: "#6b7280",
               }}
             >
-              Senior Flutter Developer
+              {siteConfig.role}
             </div>
             <div
               style={{
@@ -87,26 +89,19 @@ export default function OpenGraphImage() {
                 fontSize: 22,
               }}
             >
-              <span
-                style={{
-                  borderRadius: "999px",
-                  border: "1px solid rgba(20,24,33,0.1)",
-                  padding: "12px 18px",
-                  background: "#d9e6ef",
-                }}
-              >
-                5+ years
-              </span>
-              <span
-                style={{
-                  borderRadius: "999px",
-                  border: "1px solid rgba(20,24,33,0.1)",
-                  padding: "12px 18px",
-                  background: "rgba(255,255,255,0.8)",
-                }}
-              >
-                Android & iOS
-              </span>
+              {highlightValues.map((value, index) => (
+                <span
+                  key={value}
+                  style={{
+                    borderRadius: "999px",
+                    border: "1px solid rgba(20,24,33,0.1)",
+                    padding: "12px 18px",
+                    background: index === 0 ? "#d9e6ef" : "rgba(255,255,255,0.8)",
+                  }}
+                >
+                  {value}
+                </span>
+              ))}
             </div>
 
             <div style={{ fontSize: 24, color: "#6b7280" }}>{siteConfig.location}</div>

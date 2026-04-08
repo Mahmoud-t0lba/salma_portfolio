@@ -1,28 +1,22 @@
-import { projectCategoryOrder, projects } from "@/content/projects";
+import {
+  projectCategoryDescriptions,
+  projectCategoryOrder,
+  projects,
+  projectsSectionCopy,
+} from "@/content/projects";
 import { ProjectLinks } from "@/components/ui/project-links";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-const categoryDescriptions: Record<(typeof projectCategoryOrder)[number], string> = {
-  "Transport & Logistics":
-    "Mobility and transport products shaped around booking, movement, and public-facing rider experiences.",
-  "Social & Lifestyle":
-    "Lifestyle, utility, and community-oriented apps spanning carpooling, grocery, and faith-based daily use cases.",
-  "Education & Utilities":
-    "Education products and utility-focused experiences built around structured content, learning, and ongoing engagement.",
-  Other:
-    "Additional public releases spanning business services, ticketing, and commerce-oriented product work.",
-};
-
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-14 sm:py-18 lg:py-24">
+    <section id="projects" className="section-glow py-14 sm:py-18 lg:py-24">
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
-            eyebrow="Projects"
-            title="A complete view of Mahmoud&apos;s mobile project work."
-            description="Every project listed in the CV is shown here. Where public App Store or Google Play listings exist, the cards are enriched with verified store-backed context. Where no public listing was found, the project stays grounded in the CV only."
+            eyebrow={projectsSectionCopy.eyebrow}
+            title={projectsSectionCopy.title}
+            description={projectsSectionCopy.description}
           />
         </Reveal>
 
@@ -47,27 +41,28 @@ export function ProjectsSection() {
                       </h3>
                     </div>
                     <p className="max-w-2xl text-sm leading-6 text-[var(--text-secondary)]">
-                      {categoryDescriptions[category]}
+                      {projectCategoryDescriptions[category]}
                     </p>
                   </div>
                 </Reveal>
 
                 <div className="mt-6 grid gap-5 xl:grid-cols-2">
                   {categoryProjects.map((project, index) => {
-                    const hasStorePresence = Boolean(project.links.appStore || project.links.googlePlay);
+                    const hasProjectLinks = Object.values(project.links).some(Boolean);
 
                     return (
                       <Reveal
                         key={project.name}
                         delay={index * 0.04}
-                        className="surface-interactive rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(251,249,244,0.92))] p-6 shadow-[var(--shadow-strong)] sm:p-7"
+                        className="surface-interactive surface-shell aurora-panel project-card rounded-[2rem] border border-[var(--line)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(251,249,244,0.92))] p-6 shadow-[var(--shadow-strong)] sm:p-7"
                       >
-                        <div className="flex flex-wrap items-center gap-2">
+                        <div className="project-index">{`0${index + 1}`}</div>
+                        <div className="relative z-10 flex flex-wrap items-center gap-2">
                           <span className="rounded-full border border-[var(--line)] bg-[var(--accent-soft)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
                             {project.category}
                           </span>
                           <span className="rounded-full border border-[var(--line)] bg-white/80 px-3 py-1 text-xs text-[var(--text-secondary)]">
-                            {hasStorePresence ? "Store-backed" : "CV-listed"}
+                            {hasProjectLinks ? projectsSectionCopy.linkedLabel : projectsSectionCopy.listedLabel}
                           </span>
                           {project.platforms.map((platform) => (
                             <span
@@ -79,7 +74,7 @@ export function ProjectsSection() {
                           ))}
                         </div>
 
-                        <div className="mt-6">
+                        <div className="relative z-10 mt-6">
                           <h3 className="font-display text-2xl tracking-[-0.04em] text-[var(--text-primary)]">
                             {project.name}
                           </h3>
@@ -88,11 +83,11 @@ export function ProjectsSection() {
                           </p>
                         </div>
 
-                        <p className="mt-5 text-base leading-7 text-[var(--text-secondary)]">
+                        <p className="relative z-10 mt-5 text-base leading-7 text-[var(--text-secondary)]">
                           {project.description}
                         </p>
 
-                        <div className="mt-6">
+                        <div className="relative z-10 mt-6">
                           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--text-muted)]">
                             Project Context
                           </p>
@@ -106,7 +101,7 @@ export function ProjectsSection() {
                           </ul>
                         </div>
 
-                        <div className="mt-6 flex flex-wrap gap-2">
+                        <div className="relative z-10 mt-6 flex flex-wrap gap-2">
                           {project.stack.map((item) => (
                             <span
                               key={item}
@@ -117,7 +112,7 @@ export function ProjectsSection() {
                           ))}
                         </div>
 
-                        <div className="mt-6">
+                        <div className="relative z-10 mt-6">
                           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--text-muted)]">
                             Key Contributions
                           </p>
@@ -131,9 +126,11 @@ export function ProjectsSection() {
                           </ul>
                         </div>
 
-                        <div className="mt-7 border-t border-[var(--line)] pt-5">
-                          <ProjectLinks project={project} />
-                        </div>
+                        {hasProjectLinks ? (
+                          <div className="relative z-10 mt-7 border-t border-[var(--line)] pt-5">
+                            <ProjectLinks project={project} />
+                          </div>
+                        ) : null}
                       </Reveal>
                     );
                   })}

@@ -1,4 +1,4 @@
-import { expertiseItems } from "@/content/site";
+import { expertiseItems, expertiseSectionCopy } from "@/content/site";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 
@@ -8,9 +8,9 @@ export function ExpertiseSection() {
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading
-            eyebrow="Core Expertise"
-            title="What Mahmoud brings to a mobile product team."
-            description="A recruiter-friendly view of the value areas that show up consistently across Mahmoud's CV, delivery roles, and public app work."
+            eyebrow={expertiseSectionCopy.eyebrow}
+            title={expertiseSectionCopy.title}
+            description={expertiseSectionCopy.description}
           />
         </Reveal>
 

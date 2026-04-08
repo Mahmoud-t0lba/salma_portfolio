@@ -14,8 +14,9 @@ const headerIcons = {
 
 export function SiteHeader() {
   return (
-    <header className="relative sticky top-0 z-50 border-b border-[var(--line)] bg-[color:rgba(245,242,235,0.82)] backdrop-blur-xl">
+    <header className="relative sticky top-0 z-50 border-b border-[var(--line)] bg-[color:rgba(245,242,235,0.72)] shadow-[0_14px_40px_rgba(16,25,38,0.06)] backdrop-blur-2xl">
       <ScrollProgress />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(95,137,172,0.5),transparent)]" />
       <div className="mx-auto grid w-full max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-5 py-4 sm:px-6 lg:grid-cols-[minmax(13rem,1fr)_auto_auto] lg:gap-6 lg:px-8">
         <a href="#home" className="min-w-0 max-w-[13rem] lg:pr-4 xl:max-w-none xl:pr-8">
           <div className="truncate font-display text-[1.05rem] font-semibold tracking-[-0.03em] text-[var(--text-primary)]">
@@ -26,12 +27,15 @@ export function SiteHeader() {
           </div>
         </a>
 
-        <nav className="hidden items-center gap-5 xl:flex" aria-label="Primary">
+        <nav
+          className="hidden items-center gap-1 rounded-full border border-[var(--line)] bg-white/58 p-1 shadow-[0_14px_28px_rgba(16,25,38,0.05)] xl:flex"
+          aria-label="Primary"
+        >
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="subtle-link text-sm text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+              className="subtle-link rounded-full px-3.5 py-2 text-sm text-[var(--text-secondary)] transition-colors hover:bg-white/72 hover:text-[var(--text-primary)]"
             >
               {item.label}
             </a>
