@@ -65,3 +65,4 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 
 - The implementation uses Next.js 16, React 19, TypeScript, Tailwind CSS v4, Framer Motion, and Lucide icons.
 - `app/opengraph-image.tsx` provides a ready social preview image.
+
