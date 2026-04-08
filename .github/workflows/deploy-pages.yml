@@ -1,4 +1,4 @@
-name: Deploy Portfolio
+name: Deploy Salma Portfolio
 
 on:
   push:
@@ -42,8 +42,8 @@ jobs:
       - name: Build static export
         run: npm run build
         env:
-          NEXT_PUBLIC_BASE_PATH: /portfolio
-          NEXT_PUBLIC_SITE_URL: https://mahmoud-t0lba.github.io/portfolio
+          NEXT_PUBLIC_BASE_PATH: /salma_portfolio
+          NEXT_PUBLIC_SITE_URL: https://mahmoud-t0lba.github.io/salma_portfolio
 
       - name: Add .nojekyll
         run: touch out/.nojekyll
